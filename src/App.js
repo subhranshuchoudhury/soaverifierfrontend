@@ -77,7 +77,7 @@ function App() {
       formData.append('PHONE NUMBER', AN.number);
 
       fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => { localStorage.set('verified', true); alert("Thanks, Successfully Submitted.") })
+        .then(response => { localStorage.set('verified', true); localStorage("applicationNo", AN.applicationnumber); localStorage("username", AN.username); alert("Thanks, Successfully Submitted."); window.location.reload() })
         .catch(error => console.error('Error!', error.message));
     } else {
       alert("Incorrect OTP ❌");
@@ -174,7 +174,7 @@ function App() {
 
             </div>
           }
-        </div> : <div className='bold lastMsg'>THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!</div>
+        </div> : <div className='bold lastMsg'>THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!<br></br>APPLICATION NO: {localStorage.get("applicationNo")}<br></br>APPLICANT NAME: {localStorage.get("username")}</div>
       }
 
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Ubuntu&display=swap');
 
 body {
     font-family: 'Ubuntu', sans-serif;
@@ -10,7 +10,7 @@ body {
 }
 
 .verifySymbol {
-    width: 250pxpx;
+    width: 180px;
     height: 200px;
 }
 
@@ -24,7 +24,7 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    font-family: 'Nabla', cursive;
+    font-family: 'Bungee Spice', cursive;
 }
 
 label {
@@ -45,7 +45,7 @@ label {
 }
 
 .lastMsg {
-    font-family: 'Nabla', cursive;
+    font-family: 'Bungee Spice', cursive;
     text-align: center;
     margin-top: 30px;
 }
