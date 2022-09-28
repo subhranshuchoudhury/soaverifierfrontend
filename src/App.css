@@ -1,4 +1,8 @@
-.container {}
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Ubuntu&display=swap');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
 
 .submitButton {
     text-align: center;
@@ -25,4 +29,26 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
+    font-family: 'Nabla', cursive;
+}
+
+label {
+    background-color: aqua;
+    padding: 5px;
+    border-radius: 23px;
+    margin: 10px auto 10px;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.lastMsg {
+    font-family: 'Nabla', cursive;
 }

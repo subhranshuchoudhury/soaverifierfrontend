@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
+import localStorage from 'local-storage';
 import './App.css';
 function App() {
-  // const OTP_GEN = ;
   const [AN, setAN] = useState({});
   const [userVerifyData, setUserVerifyData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -10,12 +10,15 @@ function App() {
   const [isANformShow, setisAnFormShow] = useState(true);
   const [generatedOTP, setGeneratedOTP] = useState(Math.floor(Math.random() * 3000) + 1111);
   const [isOTPsent, setIsOTPsend] = useState(false);
-  const [isUserVerified, setIsUserVerified] = useState(false);
+  const [isUserVerified, setIsUserVerified] = useState(localStorage.get("verified"));
 
   const verifyApplicationNumber = async (e) => {
     e.preventDefault();
-    if (AN.applicationnumber === undefined || AN.username === undefined) {
-      alert("Kindly fill the form!😢");
+    if (AN.applicationnumber === undefined || AN.username === undefined || AN.number === undefined) {
+      alert("Kindly fill the form!📝");
+      return;
+    } else if (AN.number.replace(/[^0-9]/g, '').length !== 10 || isNaN(AN.number)) {
+      alert("Wrong Phone number ❌, Kindly recheck!");
       return;
     }
     // axios get request
@@ -25,7 +28,6 @@ function App() {
       setisANloaded(false);
       const { data } = await axios.get(`https://soaverifierbackend-apju.vercel.app/verify/${AN.applicationnumber}/${AN.username}`);
       setUserVerifyData(data);
-      console.log(data)
       setisANloaded(true);
       setIsLoading(false);
       if (data.isVerified) {
@@ -42,8 +44,11 @@ function App() {
 
 
   const sendOTP = async () => {
-    console.log(generatedOTP);
     try {
+      if (AN.email === undefined) {
+        alert("Email field is empty!❌");
+        return;
+      }
       const { data } = await axios.get(`https://soaverifierbackend-apju.vercel.app/sendotp/${AN.email}/${generatedOTP}`)
       if (data.isSent) {
         setIsOTPsend(true);
@@ -72,11 +77,10 @@ function App() {
       formData.append('PHONE NUMBER', AN.number);
 
       fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => alert("Thanks, Successfully Submitted."))
+        .then(response => { localStorage.set('verified', true); alert("Thanks, Successfully Submitted.") })
         .catch(error => console.error('Error!', error.message));
     } else {
       alert("Incorrect OTP ❌");
-      console.log("G OTP: " + AN.otp + "E OTP: " + generatedOTP)
       return;
     }
   }
@@ -85,13 +89,12 @@ function App() {
     const name = event.target.name;
     const value = event.target.value;
     setAN(values => ({ ...values, [name]: value }))
-    console.log(AN);
   }
   return <>
     <div className='container'>
       <div className='verifySymbolContainer'>
         {
-          isUserVerified ? <img className='verifySymbol' src='/green_shield.png' alt='gree shield'></img> : <img className='verifySymbol' src='/red_shield.png' alt='red shield'></img>
+          isUserVerified === true ? <img className='verifySymbol' src='/green_shield.png' alt='gree shield'></img> : <img className='verifySymbol' src='/red_shield.png' alt='red shield'></img>
         }
       </div>
       <div className='heading'>
@@ -100,21 +103,21 @@ function App() {
 
 
       {
-        !isUserVerified ? <div>
+        isUserVerified !== true ? <div>
           {
             isANformShow ? <form>
               <label className='form-label'>Application Number:</label>
-              <input onChange={handleChange} name='applicationnumber' value={AN.applicationnumber || ""} type="number" className='form-control' placeholder='Enter your application number' required={true}></input>
+              <input onChange={handleChange} name='applicationnumber' value={AN.applicationnumber || ""} type="number" className='form-control' placeholder='Application No...' required={true}></input>
               <label className='form-label'>Your Full Name: </label>
-              <input onChange={handleChange} name='username' value={AN.username || ""} type="text" className='form-control' placeholder='Enter your full name..' required={true}></input>
-              <div class="form-text">⚠️ Enter your full name carefully! (exact as certificate)</div>
+              <input onChange={handleChange} name='username' value={AN.username || ""} type="text" className='form-control' placeholder='Full Name...' required={true}></input>
+              <div class="form-text text-danger">⚠️ Enter your full name carefully! (exact as certificate).</div>
               <br></br>
               <label className='form-label'>Whatsapp Number: </label>
-              <input onChange={handleChange} name='number' value={AN.number || ""} type="number" className='form-control' placeholder='Whatsapp number..' required={true}></input>
+              <input onChange={handleChange} name='number' value={AN.number || ""} type="tel" className='form-control' placeholder='Whatsapp Number..' required={true}></input>
               <div className='submitButton'>
                 <button onClick={(e) => verifyApplicationNumber(e)} className='btn btn-primary'>Verify</button>
               </div>
-            </form> : <div>You are a verified student ✅</div>
+            </form> : <div className='bold'>You are a verified student ✅</div>
           }
 
 
@@ -144,7 +147,7 @@ function App() {
                       <td>{userVerifyData.userCourse}</td>
                     </tr>
                   </tbody>
-                </table> : <div>Wrong details entered ❌</div>
+                </table> : <div className='bold text-danger'>Wrong details entered ❌</div>
               }
 
               {
@@ -171,7 +174,7 @@ function App() {
 
             </div>
           }
-        </div> : <div className='verifyMsg'>THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!</div>
+        </div> : <div className='bold lastMsg'>THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!</div>
       }
 
 
