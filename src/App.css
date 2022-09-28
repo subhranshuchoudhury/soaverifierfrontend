@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis+Spice&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300+Spice&family=Ubuntu&display=swap');
 
 body {
     font-family: 'Ubuntu', sans-serif;
@@ -24,7 +24,7 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    font-family: 'Dosis', cursive;
+    font-family: 'Heebo', cursive;
 }
 
 label {
@@ -45,7 +45,7 @@ label {
 }
 
 .lastMsg {
-    font-family: 'Dosis', cursive;
+    font-family: 'Heebo', cursive;
     text-align: center;
     margin-top: 30px;
 }
