@@ -98,7 +98,7 @@ function App() {
         }
       </div>
       <div className='heading'>
-        <h2>SOA STUDENT VERIFIER 🛡️</h2>
+        <h2>SOA STUDENT VERIFIER</h2>
       </div>
 
 
@@ -160,7 +160,7 @@ function App() {
 
                   <br></br>
                   <label className='form-label'>OTP: </label>
-                  <input onChange={handleChange} name='otp' value={AN.otp || ""} type="number" className='form-control' placeholder='Enter OTP..' required={true}></input>
+                  <input onChange={handleChange} name='otp' value={AN.otp || ""} type="text" className='form-control' placeholder='Enter OTP..' required={true}></input>
 
                   <div class="form-text">⚠️ Enter OTP carefully!</div>
                   <div className='submitButton'>
@@ -174,7 +174,10 @@ function App() {
 
             </div>
           }
-        </div> : <div className='bold lastMsg'>THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!<br></br>APPLICATION NO: {localStorage.get("applicationNo")}<br></br>APPLICANT NAME: {localStorage.get("username")}</div>
+        </div> : <div className='bold lastMsg'>
+          <div className='userVerifiedDetails'>APPLICATION NO: <b className='lastUserDetails'>{localStorage.get("applicationNo")}</b><br></br>APPLICANT NAME: <b className='lastUserDetails'>{localStorage.get("username")}</b></div>
+          THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!
+        </div>
       }
 
 

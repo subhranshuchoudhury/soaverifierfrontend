@@ -2,6 +2,14 @@
 
 body {
     font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(22, 20, 20);
+    color: white;
+}
+
+td,
+tr {
+    /* border-radius: 23px; */
+    background-color: white;
 }
 
 .submitButton {
@@ -28,11 +36,12 @@ body {
 }
 
 label {
-    background-color: aqua;
+    /* background-color: aqua; */
     padding: 5px;
     border-radius: 23px;
     margin: 10px auto 10px;
     font-weight: bold;
+    font-family: 'Heebo', sans-serif;
 }
 
 .btn {
@@ -48,4 +57,16 @@ label {
     font-family: 'Heebo', sans-serif;
     text-align: center;
     margin-top: 30px;
+    text-align: left;
+}
+
+.userVerifiedDetails {
+    margin-top: 100px;
+    text-align: left;
+    /* margin-bottom: 20px; */
+}
+
+.lastUserDetails {
+    color: greenyellow;
+    margin-left: 10px;
 }
