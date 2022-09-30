@@ -183,7 +183,7 @@ function App() {
           <div className='userVerifiedDetails'>APPLICATION NO: <b className='lastUserDetails'>{localStorage.get("applicationNo")}</b><br></br>APPLICANT NAME: <b className='lastUserDetails'>{localStorage.get("username").toUpperCase()}</b><br></br>PHONE NO: <b className='lastUserDetails'>{localStorage.get("phone")}</b><br></br>EMAIL: <b className='lastUserDetails'>{localStorage.get("email")}</b></div>
           <div className='userVerifiedDetails'></div>
 
-          THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!
+          THANKS💖 , YOU ARE DONE! WE WILL CONTACT YOU!<br></br><a className='myLink' href='https://about.me/subhranshu'>@butcher</a>
         </div>
       }
 

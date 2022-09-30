@@ -103,3 +103,8 @@ label {
     width: 170px;
     height: 190px
 }
+
+.myLink {
+    text-decoration: none;
+    color: rgba(128, 128, 128, 0.386);
+}
