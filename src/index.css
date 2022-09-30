@@ -1,0 +1,14 @@
+body {
+    background-image: url("http://www.transparenttextures.com/patterns/back-pattern.png");
+    /* background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png"); */
+}
+
+.inputBox {
+    border: none;
+    border-bottom: 3px solid rgb(47, 220, 53);
+    outline: none;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

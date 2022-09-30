@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&family=Ubuntu&display=swap');
 
+
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: rgb(22, 20, 20);
-    color: white;
+    /* background-color: rgb(22, 20, 20); */
+    /* color: white; */
 }
+
+
 
 td,
 tr {
@@ -18,8 +21,10 @@ tr {
 }
 
 .verifySymbol {
-    width: 180px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+    border-radius: 23px;
 }
 
 .verifySymbolContainer {
@@ -30,8 +35,15 @@ tr {
 
 .heading {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    background-color: black;
+    color: rgb(47, 220, 53);
+    border-top: 15px solid rgb(5, 91, 197);
+    height: 50px;
+    border-bottom-right-radius: 23px;
+    border-bottom-left-radius: 23px;
+    width: 100%;
+    padding-bottom: 40px;
+    padding-top: 5px;
     font-family: 'Heebo', sans-serif;
 }
 
@@ -43,6 +55,8 @@ label {
     font-weight: bold;
     font-family: 'Heebo', sans-serif;
 }
+
+
 
 .btn {
     margin-top: 10px;
@@ -67,6 +81,25 @@ label {
 }
 
 .lastUserDetails {
-    color: greenyellow;
+    color: green;
     margin-left: 10px;
+    font-weight: bold;
+}
+
+.verifyButton {
+    margin-bottom: 30px;
+    width: 30%;
+}
+
+.loadingSpinner {
+    margin: 20px;
+}
+
+.foundresText {
+    margin: 10px;
+}
+
+.blue-tick {
+    width: 170px;
+    height: 190px
 }
