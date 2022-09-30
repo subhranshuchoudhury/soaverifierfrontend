@@ -119,7 +119,7 @@ function App() {
               {/* <label className='form-label'>Whatsapp Number: </label> */}
               <input onChange={handleChange} name='number' value={AN.number || ""} type="tel" className='form-control inputBox' placeholder='Enter Your Whatsapp Number..' required={true}></input>
               {
-                !isLoading ? <div class="d-flex align-items-center loadingSpinner">
+                isLoading ? <div class="d-flex align-items-center loadingSpinner">
                   <strong className='text-success'>Loading...</strong>
                   <div class="spinner-border ms-auto text-success" role="status" aria-hidden="true"></div>
                 </div> : null
